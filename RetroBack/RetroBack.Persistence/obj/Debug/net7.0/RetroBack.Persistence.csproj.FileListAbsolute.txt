@@ -1,0 +1,12 @@
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Persistence.deps.json
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Persistence.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Persistence.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.csproj.AssemblyReference.cache
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.AssemblyInfoInputs.cache
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.AssemblyInfo.cs
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\refint\RetroBack.Persistence.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\ref\RetroBack.Persistence.dll
