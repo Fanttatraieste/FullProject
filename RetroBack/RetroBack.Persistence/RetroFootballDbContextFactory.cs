@@ -10,7 +10,7 @@ namespace AiWidget.Persistence
         public RetroFootballDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<RetroFootballDbContext>();
-            optionsBuilder.UseSqlServer("Server=localhost;Database=CareerManagement;Integrated Security=true;MultipleActiveResultSets=true;TrustServerCertificate=True;Application Name=CareerManagement;");
+            optionsBuilder.UseSqlServer("Server=localhost;Database=RetroFootball;Integrated Security=true;MultipleActiveResultSets=true;TrustServerCertificate=True;Application Name=RetroFootball;");
 
             return new RetroFootballDbContext(optionsBuilder.Options);
         }
