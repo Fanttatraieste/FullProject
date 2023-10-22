@@ -11,9 +11,9 @@ namespace RetroBack.Persistence.Repositories.Base
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected CareerManagementDbContext DbContext;
+        protected RetroFootballDbContext DbContext;
 
-        public Repository(CareerManagementDbContext dbContext) => DbContext = dbContext;
+        public Repository(RetroFootballDbContext dbContext) => DbContext = dbContext;
 
         public void Add(T entity) => DbContext.Add(entity);
 

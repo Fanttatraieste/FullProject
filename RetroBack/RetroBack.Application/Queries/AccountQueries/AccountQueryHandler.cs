@@ -1,5 +1,7 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using RetroBack.Application.Models;
+using RetroBack.Application.QueryProjections.Mappers;
 using RetroBack.Domain.Entities;
 using RetroBack.Domain.Repositories;
 

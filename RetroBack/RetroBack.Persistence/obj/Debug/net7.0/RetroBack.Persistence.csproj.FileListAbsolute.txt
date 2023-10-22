@@ -10,3 +10,10 @@ C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persi
 C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\refint\RetroBack.Persistence.dll
 C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.pdb
 C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\ref\RetroBack.Persistence.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Persistence.runtimeconfig.json
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Common.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Domain.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Common.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Domain.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.csproj.CopyComplete
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.genruntimeconfig.cache

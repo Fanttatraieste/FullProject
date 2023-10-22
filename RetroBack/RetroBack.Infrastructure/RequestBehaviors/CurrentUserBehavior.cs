@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using RetroBack.Application.Common;
+using RetroBack.Common.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

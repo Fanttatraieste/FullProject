@@ -1,8 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using RetroBack.Application.Common;
 using RetroBack.Application.Interfaces;
 using RetroBack.Application.Models;
+using RetroBack.Application.QueryProjections.Mappers;
 using RetroBack.Common.Constants;
 using RetroBack.Domain.Entities;
 using RetroBack.Domain.Repositories;
