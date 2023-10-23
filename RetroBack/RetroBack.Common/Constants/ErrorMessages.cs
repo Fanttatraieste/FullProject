@@ -10,5 +10,6 @@ namespace RetroBack.Common.Constants
     {
         public const string API_UserLoginCommand_DisabledUser = "This user is disabled by administrator";
         public const string API_UserLoginCommand_InvalidUserInformation = "Incorrect username and/or password";
+        public const string Team_Does_Not_Exist = "Team does not exist";
     }
 }

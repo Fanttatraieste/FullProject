@@ -10,3 +10,15 @@ C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Domai
 C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Domain\obj\Debug\net7.0\refint\RetroBack.Domain.dll
 C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Domain\obj\Debug\net7.0\RetroBack.Domain.pdb
 C:\Users\Vlad\Desktop\proiecte vlad\.NET\RetroFootball\RetroBack\RetroBack.Domain\obj\Debug\net7.0\ref\RetroBack.Domain.dll
+C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Domain\bin\Debug\net7.0\RetroBack.Domain.deps.json
+C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Domain\bin\Debug\net7.0\RetroBack.Domain.dll
+C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Domain\bin\Debug\net7.0\RetroBack.Domain.pdb
+C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Domain\obj\Debug\net7.0\RetroBack.Domain.csproj.AssemblyReference.cache
+C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Domain\obj\Debug\net7.0\RetroBack.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Domain\obj\Debug\net7.0\RetroBack.Domain.AssemblyInfoInputs.cache
+C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Domain\obj\Debug\net7.0\RetroBack.Domain.AssemblyInfo.cs
+C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Domain\obj\Debug\net7.0\RetroBack.Domain.csproj.CoreCompileInputs.cache
+C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Domain\obj\Debug\net7.0\RetroBack.Domain.dll
+C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Domain\obj\Debug\net7.0\refint\RetroBack.Domain.dll
+C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Domain\obj\Debug\net7.0\RetroBack.Domain.pdb
+C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Domain\obj\Debug\net7.0\ref\RetroBack.Domain.dll

@@ -220,6 +220,25 @@ namespace RetroBack.Persistence.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
+            modelBuilder.Entity("RetroBack.Domain.Entities.Team", b =>
+                {
+                    b.Property<Guid>("TeamID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("TeamCountry")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TeamName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TeamID");
+
+                    b.ToTable("Teams");
+                });
+
             modelBuilder.Entity("RetroBack.Domain.Entities.UserRole", b =>
                 {
                     b.Property<string>("UserId")

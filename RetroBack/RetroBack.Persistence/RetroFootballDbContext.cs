@@ -9,6 +9,8 @@ namespace RetroBack.Persistence
 {
     public class RetroFootballDbContext : IdentityDbContext<ApplicationUser, Role, string, IdentityUserClaim<string>, UserRole, IdentityUserLogin<string>, IdentityRoleClaim<string>, IdentityUserToken<string>>
     {
+        public DbSet<Team> Teams { get; set; }
+
         public RetroFootballDbContext(DbContextOptions options)
             : base(options)
         {
@@ -16,6 +18,8 @@ namespace RetroBack.Persistence
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<Team>().Property(t => t.TeamName).IsRequired();
+            builder.Entity<Team>().Property(t => t.TeamCountry).IsRequired();
 
             base.OnModelCreating(builder);
 
