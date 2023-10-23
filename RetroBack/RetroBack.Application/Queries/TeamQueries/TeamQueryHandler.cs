@@ -30,20 +30,20 @@ namespace RetroBack.Application.Queries.TeamQueries
             })
             .FirstOrDefaultAsync();
 
-           if (existingTeam == null)
+            if (existingTeam == null)
             {
                 return CommandResponse<TeamDTO>.Failed(ErrorMessages.Team_Does_Not_Exist);
             }
 
-           return CommandResponse<TeamDTO>.Ok(existingTeam);
+            return CommandResponse<TeamDTO>.Ok(existingTeam);
         }
 
         public async Task<CollectionResponse<TeamListItemDTO>> Handle(GetTeamsQuery request, CancellationToken cancellationToken)
         {
-            if (request.Skip < 0)
+            if (request.Skip < 0 || request.Skip == null)
                 request.Skip = 0;
 
-            if (request.Take <= 0 || request.Take > 20)
+            if (request.Take <= 0 || request.Take > 20 || request.Take == null)
                 request.Take = 20;
 
             var teamsQuery = _teamRepository.Query();

@@ -27,16 +27,16 @@ namespace RetroBack.Application.Queries.TeamQueries
 
         // sorting
         [FromQuery]
-        public string SortBy { get; set; }
+        public string? SortBy { get; set; }
 
         [FromQuery]
-        public string SortDir { get; set; }
+        public string? SortDir { get; set; }
 
 
         // filtering
         [FromQuery]
-        public string TeamName { get; set; }
+        public string? TeamName { get; set; }
         [FromQuery]
-        public string TeamCountry { get; set; }
+        public string? TeamCountry { get; set; }
     }
 }
