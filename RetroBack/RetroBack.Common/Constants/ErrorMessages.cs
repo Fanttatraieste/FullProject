@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace RetroBack.Common.Constants
 {
@@ -14,5 +10,6 @@ namespace RetroBack.Common.Constants
         public const string ChampionsCup_Does_Not_Exist = "Champions Cup does not exist";
         public const string DomesticCup_Does_Not_Exist = "Domestic Cup does not exist";
         public const string DomesticLeague_Does_Not_Exist = "Domestic League does not exist";
+        public const string DomesticSuperCup_Does_Not_Exist = "Domestic Super Cup does not exist";
     }
 }

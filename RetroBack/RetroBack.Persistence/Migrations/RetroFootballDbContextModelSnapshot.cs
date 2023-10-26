@@ -318,6 +318,29 @@ namespace RetroBack.Persistence.Migrations
                     b.ToTable("DomesticLeagueInfo");
                 });
 
+            modelBuilder.Entity("RetroBack.Domain.Entities.TeamDomesticSuperCup", b =>
+                {
+                    b.Property<Guid>("DomesticSuperCupID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("WinnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("DomesticSuperCupID");
+
+                    b.HasIndex("WinnerId");
+
+                    b.ToTable("DomesticSuperCupInfo");
+                });
+
             modelBuilder.Entity("RetroBack.Domain.Entities.UserRole", b =>
                 {
                     b.Property<string>("UserId")
@@ -423,6 +446,18 @@ namespace RetroBack.Persistence.Migrations
                     b.Navigation("WinnerTeam");
                 });
 
+            modelBuilder.Entity("RetroBack.Domain.Entities.TeamDomesticSuperCup", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.Team", "Winner")
+                        .WithMany("DomesticSuperCups")
+                        .HasForeignKey("WinnerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_DomesticSuperCupWinner_Team");
+
+                    b.Navigation("Winner");
+                });
+
             modelBuilder.Entity("RetroBack.Domain.Entities.UserRole", b =>
                 {
                     b.HasOne("RetroBack.Domain.Entities.Role", "Role")
@@ -463,6 +498,8 @@ namespace RetroBack.Persistence.Migrations
                     b.Navigation("DomesticLeagueRunnerUps");
 
                     b.Navigation("DomesticLeagues");
+
+                    b.Navigation("DomesticSuperCups");
                 });
 #pragma warning restore 612, 618
         }

@@ -13,5 +13,6 @@ namespace RetroBack.Domain.Entities
         public ICollection<TeamDomesticCup> DomesticCups { get; set; }
         public ICollection<TeamDomesticLeague> DomesticLeagues { get; set; }
         public ICollection<TeamDomesticLeague> DomesticLeagueRunnerUps { get; set; }
+        public ICollection<TeamDomesticSuperCup> DomesticSuperCups { get; set; }
     }
 }

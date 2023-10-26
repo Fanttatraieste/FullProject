@@ -12,6 +12,7 @@ namespace RetroBack.Persistence
         public DbSet<ChampionsCup> ChampionsCups { get; set; }
         public DbSet<TeamDomesticCup> DomesticCups { get; set; }
         public DbSet<TeamDomesticLeague> DomesticLeagues { get; set; }
+        public DbSet<TeamDomesticSuperCup> DomesticSuperCups { get; set; }
 
         public RetroFootballDbContext(DbContextOptions options)
             : base(options)
@@ -23,6 +24,7 @@ namespace RetroBack.Persistence
             builder.Entity<Team>().Property(t => t.TeamName).IsRequired();
             builder.Entity<Team>().Property(t => t.TeamCountry).IsRequired();
 
+            // ----------      Champions Cup Builder        ---------- // 
             builder.Entity<ChampionsCup>()
                 .HasOne(c => c.Winner)
                 .WithMany(t => t.ChampionsCups)
@@ -37,6 +39,8 @@ namespace RetroBack.Persistence
                 .HasConstraintName("FK_ChampionsCupRunnerUps_Team")
                 .OnDelete(DeleteBehavior.NoAction);
 
+            // ----------      Domestic Cup Builder        ---------- // 
+
             builder.Entity<TeamDomesticCup>()
                 .HasKey(t => t.DomesticCupID);
 
@@ -46,6 +50,8 @@ namespace RetroBack.Persistence
                 .HasForeignKey(c => c.WinnerId)
                 .HasConstraintName("FK_DomesticCup_Team")
                 .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      Domestic League Builder        ---------- // 
 
             builder.Entity<TeamDomesticLeague>()
                 .HasKey(t => t.DomesticLeagueID);
@@ -62,6 +68,18 @@ namespace RetroBack.Persistence
                 .WithMany(t => t.DomesticLeagueRunnerUps)
                 .HasForeignKey(l => l.RunnerUpId)
                 .HasConstraintName("FK_DomesticLeagueRunnerUp_Team")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      Domestic Super Cup Builder        ---------- // 
+
+            builder.Entity<TeamDomesticSuperCup>()
+                .HasKey(s => s.DomesticSuperCupID);
+
+            builder.Entity<TeamDomesticSuperCup>()
+                .HasOne(s => s.Winner)
+                .WithMany(t => t.DomesticSuperCups)
+                .HasForeignKey(s => s.WinnerId)
+                .HasConstraintName("FK_DomesticSuperCupWinner_Team")
                 .OnDelete(DeleteBehavior.NoAction);
 
             base.OnModelCreating(builder);
