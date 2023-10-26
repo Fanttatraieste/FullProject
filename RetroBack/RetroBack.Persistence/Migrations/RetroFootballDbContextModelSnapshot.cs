@@ -28,6 +28,10 @@ namespace RetroBack.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Confederation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Place")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -341,6 +345,97 @@ namespace RetroBack.Persistence.Migrations
                     b.ToTable("DomesticSuperCupInfo");
                 });
 
+            modelBuilder.Entity("RetroBack.Domain.Entities.TeamUEFACup", b =>
+                {
+                    b.Property<Guid>("UEFACupID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Confederation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Place")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UefaCupRunnerUpId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UefaCupWinnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("UEFACupID");
+
+                    b.HasIndex("UefaCupRunnerUpId");
+
+                    b.HasIndex("UefaCupWinnerId");
+
+                    b.ToTable("UEFACupInfo");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.TeamUefaSuperCup", b =>
+                {
+                    b.Property<Guid>("UEFASuperCupID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Confederation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Place")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UefaSuperCupWinnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("UEFASuperCupID");
+
+                    b.HasIndex("UefaSuperCupWinnerId");
+
+                    b.ToTable("UEFASuperCupInfo");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.TeamUefaWinnersCup", b =>
+                {
+                    b.Property<Guid>("WinnersCupID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Confederation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Place")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UefaWinnersCupRunnerUpId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UefaWinnersCupWinnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("WinnersCupID");
+
+                    b.HasIndex("UefaWinnersCupRunnerUpId");
+
+                    b.HasIndex("UefaWinnersCupWinnerId");
+
+                    b.ToTable("WinnersCupInfo");
+                });
+
             modelBuilder.Entity("RetroBack.Domain.Entities.UserRole", b =>
                 {
                     b.Property<string>("UserId")
@@ -458,6 +553,60 @@ namespace RetroBack.Persistence.Migrations
                     b.Navigation("Winner");
                 });
 
+            modelBuilder.Entity("RetroBack.Domain.Entities.TeamUEFACup", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.Team", "RunnerUpTeam")
+                        .WithMany("UefaCupsRunnerUps")
+                        .HasForeignKey("UefaCupRunnerUpId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_UEFACupRunnerUp_Team");
+
+                    b.HasOne("RetroBack.Domain.Entities.Team", "WinnerTeam")
+                        .WithMany("UefaCups")
+                        .HasForeignKey("UefaCupWinnerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_UEFACupWinner_Team");
+
+                    b.Navigation("RunnerUpTeam");
+
+                    b.Navigation("WinnerTeam");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.TeamUefaSuperCup", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.Team", "WinnerTeam")
+                        .WithMany("UefaSuperCups")
+                        .HasForeignKey("UefaSuperCupWinnerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_UEFASuperCupRunnerUp_Team");
+
+                    b.Navigation("WinnerTeam");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.TeamUefaWinnersCup", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.Team", "RunnerUpTeam")
+                        .WithMany("UefaWinnersCupRunnerUps")
+                        .HasForeignKey("UefaWinnersCupRunnerUpId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_UEFAWinnerCupRunnerUp_Team");
+
+                    b.HasOne("RetroBack.Domain.Entities.Team", "WinnerTeam")
+                        .WithMany("UefaWinnersCups")
+                        .HasForeignKey("UefaWinnersCupWinnerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_UEFAWinnerCupWinner_Team");
+
+                    b.Navigation("RunnerUpTeam");
+
+                    b.Navigation("WinnerTeam");
+                });
+
             modelBuilder.Entity("RetroBack.Domain.Entities.UserRole", b =>
                 {
                     b.HasOne("RetroBack.Domain.Entities.Role", "Role")
@@ -500,6 +649,16 @@ namespace RetroBack.Persistence.Migrations
                     b.Navigation("DomesticLeagues");
 
                     b.Navigation("DomesticSuperCups");
+
+                    b.Navigation("UefaCups");
+
+                    b.Navigation("UefaCupsRunnerUps");
+
+                    b.Navigation("UefaSuperCups");
+
+                    b.Navigation("UefaWinnersCupRunnerUps");
+
+                    b.Navigation("UefaWinnersCups");
                 });
 #pragma warning restore 612, 618
         }

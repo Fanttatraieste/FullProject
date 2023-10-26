@@ -10,6 +10,9 @@ namespace FootballIconsCAPI.Entities
         public Guid ChampionsCupID { get; set; }
         public string Place { get; set; }
         public int Year { get; set; }
+        public string Confederation { get; set; }
+
+
         [ForeignKey("Winner")]
         public Guid WinnerTeamId { get; set; }
         [ForeignKey("RunnerUp")]

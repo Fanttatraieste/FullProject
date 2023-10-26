@@ -13,6 +13,9 @@ namespace RetroBack.Persistence
         public DbSet<TeamDomesticCup> DomesticCups { get; set; }
         public DbSet<TeamDomesticLeague> DomesticLeagues { get; set; }
         public DbSet<TeamDomesticSuperCup> DomesticSuperCups { get; set; }
+        public DbSet<TeamUEFACup> UefaCups { get; set; }
+        public DbSet<TeamUefaSuperCup> UefaSuperCups { get; set; }
+        public DbSet<TeamUefaWinnersCup> UefaWinnersCups { get; set; }
 
         public RetroFootballDbContext(DbContextOptions options)
             : base(options)
@@ -80,6 +83,56 @@ namespace RetroBack.Persistence
                 .WithMany(t => t.DomesticSuperCups)
                 .HasForeignKey(s => s.WinnerId)
                 .HasConstraintName("FK_DomesticSuperCupWinner_Team")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      UEFA Cup Builder        ---------- // 
+
+            builder.Entity<TeamUEFACup>()
+                .HasKey(u => u.UEFACupID);
+
+            builder.Entity<TeamUEFACup>()
+                .HasOne(u => u.WinnerTeam)
+                .WithMany(t => t.UefaCups)
+                .HasForeignKey(u => u.UefaCupWinnerId)
+                .HasConstraintName("FK_UEFACupWinner_Team")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<TeamUEFACup>()
+                .HasOne(u => u.RunnerUpTeam)
+                .WithMany(t => t.UefaCupsRunnerUps)
+                .HasForeignKey(u => u.UefaCupRunnerUpId)
+                .HasConstraintName("FK_UEFACupRunnerUp_Team")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      UEFA Super Cup Builder        ---------- // 
+
+            builder.Entity<TeamUefaSuperCup>()
+                .HasKey(s => s.UEFASuperCupID);
+
+            builder.Entity<TeamUefaSuperCup>()
+                .HasOne(s => s.WinnerTeam)
+                .WithMany(t => t.UefaSuperCups)
+                .HasForeignKey(s => s.UefaSuperCupWinnerId)
+                .HasConstraintName("FK_UEFASuperCupRunnerUp_Team")  // Atentie :)))
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      UEFA Winners Cup Builder        ---------- // 
+
+            builder.Entity<TeamUefaWinnersCup>()
+                .HasKey(u => u.WinnersCupID);
+
+            builder.Entity<TeamUefaWinnersCup>()
+                .HasOne(u =>u.WinnerTeam)
+                .WithMany(t => t.UefaWinnersCups)
+                .HasForeignKey(u => u.UefaWinnersCupWinnerId)
+                .HasConstraintName("FK_UEFAWinnerCupWinner_Team")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<TeamUefaWinnersCup>()
+                .HasOne(u => u.RunnerUpTeam)
+                .WithMany(t => t.UefaWinnersCupRunnerUps)
+                .HasForeignKey(u => u.UefaWinnersCupRunnerUpId)
+                .HasConstraintName("FK_UEFAWinnerCupRunnerUp_Team")
                 .OnDelete(DeleteBehavior.NoAction);
 
             base.OnModelCreating(builder);
