@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RetroBack.Persistence;
 
@@ -11,9 +12,11 @@ using RetroBack.Persistence;
 namespace RetroBack.Persistence.Migrations
 {
     [DbContext(typeof(RetroFootballDbContext))]
-    partial class RetroFootballDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231026170325_DomesticLeagueTable")]
+    partial class DomesticLeagueTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

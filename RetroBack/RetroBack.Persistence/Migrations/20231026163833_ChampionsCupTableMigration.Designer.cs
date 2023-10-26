@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RetroBack.Persistence;
 
@@ -11,9 +12,11 @@ using RetroBack.Persistence;
 namespace RetroBack.Persistence.Migrations
 {
     [DbContext(typeof(RetroFootballDbContext))]
-    partial class RetroFootballDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231026163833_ChampionsCupTableMigration")]
+    partial class ChampionsCupTableMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -267,57 +270,6 @@ namespace RetroBack.Persistence.Migrations
                     b.ToTable("Teams");
                 });
 
-            modelBuilder.Entity("RetroBack.Domain.Entities.TeamDomesticCup", b =>
-                {
-                    b.Property<Guid>("DomesticCupID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("WinnerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
-
-                    b.HasKey("DomesticCupID");
-
-                    b.HasIndex("WinnerId");
-
-                    b.ToTable("DomesticCupInfo");
-                });
-
-            modelBuilder.Entity("RetroBack.Domain.Entities.TeamDomesticLeague", b =>
-                {
-                    b.Property<Guid>("DomesticLeagueID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("RunnerUpId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("WinnerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
-
-                    b.HasKey("DomesticLeagueID");
-
-                    b.HasIndex("RunnerUpId");
-
-                    b.HasIndex("WinnerId");
-
-                    b.ToTable("DomesticLeagueInfo");
-                });
-
             modelBuilder.Entity("RetroBack.Domain.Entities.UserRole", b =>
                 {
                     b.Property<string>("UserId")
@@ -390,39 +342,6 @@ namespace RetroBack.Persistence.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RetroBack.Domain.Entities.TeamDomesticCup", b =>
-                {
-                    b.HasOne("RetroBack.Domain.Entities.Team", "WinnerTeam")
-                        .WithMany("DomesticCups")
-                        .HasForeignKey("WinnerId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired()
-                        .HasConstraintName("FK_DomesticCup_Team");
-
-                    b.Navigation("WinnerTeam");
-                });
-
-            modelBuilder.Entity("RetroBack.Domain.Entities.TeamDomesticLeague", b =>
-                {
-                    b.HasOne("RetroBack.Domain.Entities.Team", "RunnerUpTeam")
-                        .WithMany("DomesticLeagueRunnerUps")
-                        .HasForeignKey("RunnerUpId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired()
-                        .HasConstraintName("FK_DomesticLeagueRunnerUp_Team");
-
-                    b.HasOne("RetroBack.Domain.Entities.Team", "WinnerTeam")
-                        .WithMany("DomesticLeagues")
-                        .HasForeignKey("WinnerId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired()
-                        .HasConstraintName("FK_DomesticLeagueWinner_Team");
-
-                    b.Navigation("RunnerUpTeam");
-
-                    b.Navigation("WinnerTeam");
-                });
-
             modelBuilder.Entity("RetroBack.Domain.Entities.UserRole", b =>
                 {
                     b.HasOne("RetroBack.Domain.Entities.Role", "Role")
@@ -457,12 +376,6 @@ namespace RetroBack.Persistence.Migrations
                     b.Navigation("ChampionsCupRunnerUps");
 
                     b.Navigation("ChampionsCups");
-
-                    b.Navigation("DomesticCups");
-
-                    b.Navigation("DomesticLeagueRunnerUps");
-
-                    b.Navigation("DomesticLeagues");
                 });
 #pragma warning restore 612, 618
         }
