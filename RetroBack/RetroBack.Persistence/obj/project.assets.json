@@ -5212,19 +5212,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vlad.uta\\.nuget\\packages\\": {}
+    "C:\\Users\\Vlad\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vlad.uta\\Desktop\\stuff\\FullProject\\RetroBack\\RetroBack.Persistence\\RetroBack.Persistence.csproj",
+      "projectUniqueName": "C:\\Users\\Vlad\\Desktop\\proiecte vlad\\.NET\\FullProject\\RetroBack\\RetroBack.Persistence\\RetroBack.Persistence.csproj",
       "projectName": "RetroBack.Persistence",
-      "projectPath": "C:\\Users\\vlad.uta\\Desktop\\stuff\\FullProject\\RetroBack\\RetroBack.Persistence\\RetroBack.Persistence.csproj",
-      "packagesPath": "C:\\Users\\vlad.uta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vlad.uta\\Desktop\\stuff\\FullProject\\RetroBack\\RetroBack.Persistence\\obj\\",
+      "projectPath": "C:\\Users\\Vlad\\Desktop\\proiecte vlad\\.NET\\FullProject\\RetroBack\\RetroBack.Persistence\\RetroBack.Persistence.csproj",
+      "packagesPath": "C:\\Users\\Vlad\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Vlad\\Desktop\\proiecte vlad\\.NET\\FullProject\\RetroBack\\RetroBack.Persistence\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\vlad.uta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vlad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5238,11 +5243,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\vlad.uta\\Desktop\\stuff\\FullProject\\RetroBack\\RetroBack.Common\\RetroBack.Common.csproj": {
-              "projectPath": "C:\\Users\\vlad.uta\\Desktop\\stuff\\FullProject\\RetroBack\\RetroBack.Common\\RetroBack.Common.csproj"
+            "C:\\Users\\Vlad\\Desktop\\proiecte vlad\\.NET\\FullProject\\RetroBack\\RetroBack.Common\\RetroBack.Common.csproj": {
+              "projectPath": "C:\\Users\\Vlad\\Desktop\\proiecte vlad\\.NET\\FullProject\\RetroBack\\RetroBack.Common\\RetroBack.Common.csproj"
             },
-            "C:\\Users\\vlad.uta\\Desktop\\stuff\\FullProject\\RetroBack\\RetroBack.Domain\\RetroBack.Domain.csproj": {
-              "projectPath": "C:\\Users\\vlad.uta\\Desktop\\stuff\\FullProject\\RetroBack\\RetroBack.Domain\\RetroBack.Domain.csproj"
+            "C:\\Users\\Vlad\\Desktop\\proiecte vlad\\.NET\\FullProject\\RetroBack\\RetroBack.Domain\\RetroBack.Domain.csproj": {
+              "projectPath": "C:\\Users\\Vlad\\Desktop\\proiecte vlad\\.NET\\FullProject\\RetroBack\\RetroBack.Domain\\RetroBack.Domain.csproj"
             }
           }
         }
@@ -5316,7 +5321,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }

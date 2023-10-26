@@ -36,3 +36,22 @@ C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Infrastructure\o
 C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\refint\RetroBack.Infrastructure.dll
 C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\RetroBack.Infrastructure.pdb
 C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\ref\RetroBack.Infrastructure.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\bin\Debug\net7.0\RetroBack.Infrastructure.deps.json
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\bin\Debug\net7.0\RetroBack.Infrastructure.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\bin\Debug\net7.0\RetroBack.Infrastructure.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\bin\Debug\net7.0\RetroBack.Application.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\bin\Debug\net7.0\RetroBack.Common.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\bin\Debug\net7.0\RetroBack.Domain.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\bin\Debug\net7.0\RetroBack.Application.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\bin\Debug\net7.0\RetroBack.Common.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\bin\Debug\net7.0\RetroBack.Domain.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\RetroBack.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\RetroBack.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\RetroBack.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\RetroBack.Infrastructure.AssemblyInfo.cs
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\RetroBack.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\RetroBack.Infrastructure.csproj.CopyComplete
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\RetroBack.Infrastructure.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\refint\RetroBack.Infrastructure.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\RetroBack.Infrastructure.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\ref\RetroBack.Infrastructure.dll

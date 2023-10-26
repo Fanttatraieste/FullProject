@@ -36,3 +36,22 @@ C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Persistence\obj\
 C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.pdb
 C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.genruntimeconfig.cache
 C:\Users\vlad.uta\Desktop\stuff\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\ref\RetroBack.Persistence.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Persistence.deps.json
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Persistence.runtimeconfig.json
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Persistence.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Persistence.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Common.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Domain.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Common.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\bin\Debug\net7.0\RetroBack.Domain.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.csproj.AssemblyReference.cache
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.AssemblyInfoInputs.cache
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.AssemblyInfo.cs
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.csproj.CopyComplete
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\refint\RetroBack.Persistence.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.pdb
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\RetroBack.Persistence.genruntimeconfig.cache
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Persistence\obj\Debug\net7.0\ref\RetroBack.Persistence.dll
