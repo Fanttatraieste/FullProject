@@ -225,6 +225,216 @@ namespace RetroBack.Persistence.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("RetroBack.Domain.Entities.ContinentalCupSquads", b =>
+                {
+                    b.Property<Guid>("SquadId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("NationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("SquadId");
+
+                    b.HasIndex("NationId");
+
+                    b.ToTable("ContinentalCupSquads");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.Icon", b =>
+                {
+                    b.Property<Guid>("IconId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("CareerGames")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CareerGoals")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CareerLengthInYears")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("NationIconStatId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Nickname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RetiredInYear")
+                        .HasColumnType("int");
+
+                    b.Property<int>("YearOfBirth")
+                        .HasColumnType("int");
+
+                    b.HasKey("IconId");
+
+                    b.ToTable("Icons");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.Nation", b =>
+                {
+                    b.Property<Guid>("NationID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Confederation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NationName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("NationID");
+
+                    b.ToTable("NationInfo");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.NationContinentalCup", b =>
+                {
+                    b.Property<Guid>("ContinentalCupID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Confederation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Place")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RunnerUpNationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ThirdPlaceNationId")
+                        .IsRequired()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("WinnerNationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("ContinentalCupID");
+
+                    b.HasIndex("RunnerUpNationId");
+
+                    b.HasIndex("ThirdPlaceNationId");
+
+                    b.HasIndex("WinnerNationId");
+
+                    b.ToTable("ContinentalCups");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.NationIconStats", b =>
+                {
+                    b.Property<Guid>("StatId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("GamesPlayed")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GoalsScored")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("IconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("NationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("WorldCupGoals")
+                        .HasColumnType("int");
+
+                    b.HasKey("StatId");
+
+                    b.HasIndex("IconId")
+                        .IsUnique();
+
+                    b.HasIndex("NationId");
+
+                    b.ToTable("NationIconStats");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.NationIconStatsContinentalCupSquads", b =>
+                {
+                    b.Property<Guid>("SquadId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("StatsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("SquadId", "StatsId");
+
+                    b.HasIndex("StatsId");
+
+                    b.ToTable("NationIconStatsContinentalCupSquads");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.NationIconStatsWorldCupSquads", b =>
+                {
+                    b.Property<Guid>("StatsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SquadId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("StatsId", "SquadId");
+
+                    b.HasIndex("SquadId");
+
+                    b.ToTable("NationIconStatsWorldCupSquads");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.NationWorldCup", b =>
+                {
+                    b.Property<Guid>("WorldCupID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Place")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RunnerUpNationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ThirdPlaceNationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("WinnerNationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("WorldCupID");
+
+                    b.HasIndex("RunnerUpNationId");
+
+                    b.HasIndex("ThirdPlaceNationId");
+
+                    b.HasIndex("WinnerNationId");
+
+                    b.ToTable("WorldCups");
+                });
+
             modelBuilder.Entity("RetroBack.Domain.Entities.Role", b =>
                 {
                     b.Property<string>("Id")
@@ -451,6 +661,22 @@ namespace RetroBack.Persistence.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
+            modelBuilder.Entity("RetroBack.Domain.Entities.WorldCupSquads", b =>
+                {
+                    b.Property<Guid>("SquadId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("NationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("SquadId");
+
+                    b.HasIndex("NationId");
+
+                    b.ToTable("WorldCupSquads");
+                });
+
             modelBuilder.Entity("FootballIconsCAPI.Entities.ChampionsCup", b =>
                 {
                     b.HasOne("RetroBack.Domain.Entities.Team", "RunnerUp")
@@ -506,6 +732,141 @@ namespace RetroBack.Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.ContinentalCupSquads", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.Nation", "Nation")
+                        .WithMany("ContinentalCupSquads")
+                        .HasForeignKey("NationId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_ContinentalCupSquad_Nation");
+
+                    b.Navigation("Nation");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.NationContinentalCup", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.Nation", "RunnerUpNation")
+                        .WithMany("ContinentalCupRunnerUps")
+                        .HasForeignKey("RunnerUpNationId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_ContinentalCupRunnerUp_Nation");
+
+                    b.HasOne("RetroBack.Domain.Entities.Nation", "ThirdPlaceNation")
+                        .WithMany("ContinentalCupThirdPlaces")
+                        .HasForeignKey("ThirdPlaceNationId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_ContinentalCupThirdPlace_Nation");
+
+                    b.HasOne("RetroBack.Domain.Entities.Nation", "WinnerNation")
+                        .WithMany("ContinentalCups")
+                        .HasForeignKey("WinnerNationId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_ContinentalCupWinner_Nation");
+
+                    b.Navigation("RunnerUpNation");
+
+                    b.Navigation("ThirdPlaceNation");
+
+                    b.Navigation("WinnerNation");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.NationIconStats", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.Icon", "Icon")
+                        .WithOne("NationIconStats")
+                        .HasForeignKey("RetroBack.Domain.Entities.NationIconStats", "IconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_NationStats_Icon");
+
+                    b.HasOne("RetroBack.Domain.Entities.Nation", "Nation")
+                        .WithMany("IconsStats")
+                        .HasForeignKey("NationId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_NationStats_Nation");
+
+                    b.Navigation("Icon");
+
+                    b.Navigation("Nation");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.NationIconStatsContinentalCupSquads", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.ContinentalCupSquads", "ContinentalCupSquads")
+                        .WithMany("Players")
+                        .HasForeignKey("SquadId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_ManyToMany_ContinentalCupSquads");
+
+                    b.HasOne("RetroBack.Domain.Entities.NationIconStats", "NationIconStats")
+                        .WithMany("ContinentalCupSquads")
+                        .HasForeignKey("StatsId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_ManyToMany_NationIconStats");
+
+                    b.Navigation("ContinentalCupSquads");
+
+                    b.Navigation("NationIconStats");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.NationIconStatsWorldCupSquads", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.WorldCupSquads", "WorldCupSquads")
+                        .WithMany("Players")
+                        .HasForeignKey("SquadId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_ManyToMany_WorldCupSquads");
+
+                    b.HasOne("RetroBack.Domain.Entities.NationIconStats", "NationIconStats")
+                        .WithMany("WorldCupSquads")
+                        .HasForeignKey("StatsId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_ManyToMany_NationStats");
+
+                    b.Navigation("NationIconStats");
+
+                    b.Navigation("WorldCupSquads");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.NationWorldCup", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.Nation", "RunnerUpNation")
+                        .WithMany("WorldCupRunnerUps")
+                        .HasForeignKey("RunnerUpNationId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_WorldCupRunnerUp_Nation");
+
+                    b.HasOne("RetroBack.Domain.Entities.Nation", "ThirdPlaceNation")
+                        .WithMany("WorldCupThirdPlaces")
+                        .HasForeignKey("ThirdPlaceNationId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_WorldCupThirdPlace_Nation");
+
+                    b.HasOne("RetroBack.Domain.Entities.Nation", "WinnerNation")
+                        .WithMany("WorldCups")
+                        .HasForeignKey("WinnerNationId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_WorldCupWinner_Nation");
+
+                    b.Navigation("RunnerUpNation");
+
+                    b.Navigation("ThirdPlaceNation");
+
+                    b.Navigation("WinnerNation");
                 });
 
             modelBuilder.Entity("RetroBack.Domain.Entities.TeamDomesticCup", b =>
@@ -626,9 +987,60 @@ namespace RetroBack.Persistence.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("RetroBack.Domain.Entities.WorldCupSquads", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.Nation", "Nation")
+                        .WithMany("WorldCupSquads")
+                        .HasForeignKey("NationId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_WorldCupSquad_Nation");
+
+                    b.Navigation("Nation");
+                });
+
             modelBuilder.Entity("RetroBack.Domain.Entities.ApplicationUser", b =>
                 {
                     b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.ContinentalCupSquads", b =>
+                {
+                    b.Navigation("Players");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.Icon", b =>
+                {
+                    b.Navigation("NationIconStats")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.Nation", b =>
+                {
+                    b.Navigation("ContinentalCupRunnerUps");
+
+                    b.Navigation("ContinentalCupSquads");
+
+                    b.Navigation("ContinentalCupThirdPlaces");
+
+                    b.Navigation("ContinentalCups");
+
+                    b.Navigation("IconsStats");
+
+                    b.Navigation("WorldCupRunnerUps");
+
+                    b.Navigation("WorldCupSquads");
+
+                    b.Navigation("WorldCupThirdPlaces");
+
+                    b.Navigation("WorldCups");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.NationIconStats", b =>
+                {
+                    b.Navigation("ContinentalCupSquads");
+
+                    b.Navigation("WorldCupSquads");
                 });
 
             modelBuilder.Entity("RetroBack.Domain.Entities.Role", b =>
@@ -659,6 +1071,11 @@ namespace RetroBack.Persistence.Migrations
                     b.Navigation("UefaWinnersCupRunnerUps");
 
                     b.Navigation("UefaWinnersCups");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.WorldCupSquads", b =>
+                {
+                    b.Navigation("Players");
                 });
 #pragma warning restore 612, 618
         }

@@ -16,6 +16,15 @@ namespace RetroBack.Persistence
         public DbSet<TeamUEFACup> UefaCups { get; set; }
         public DbSet<TeamUefaSuperCup> UefaSuperCups { get; set; }
         public DbSet<TeamUefaWinnersCup> UefaWinnersCups { get; set; }
+        public DbSet<Nation> Nations { get; set; }
+        public DbSet<NationWorldCup> WorldCups { get; set; }
+        public DbSet<NationContinentalCup> ContinentalCups { get; set; }
+        public DbSet<Icon> Icons { get; set; }
+        public DbSet<WorldCupSquads> WorldCupSquads { get; set; }
+        public DbSet<NationIconStats> NationIconStats { get; set; }
+        public DbSet<NationIconStatsWorldCupSquads> NationIconStatsWorldCupSquads { get; set; }
+        public DbSet<ContinentalCupSquads> ContinentalCupSquads { get; set; }
+        public DbSet<NationIconStatsContinentalCupSquads> NationIconStatsContinentalCupSquads { get; set; }
 
         public RetroFootballDbContext(DbContextOptions options)
             : base(options)
@@ -134,6 +143,149 @@ namespace RetroBack.Persistence
                 .HasForeignKey(u => u.UefaWinnersCupRunnerUpId)
                 .HasConstraintName("FK_UEFAWinnerCupRunnerUp_Team")
                 .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      Nations Builder        ---------- // 
+
+            builder.Entity<Nation>()
+                .HasKey(n => n.NationID);
+
+            // ----------      World Cup Builder        ---------- // 
+
+            builder.Entity<NationWorldCup>()
+                .HasKey(w => w.WorldCupID);
+
+            builder.Entity<NationWorldCup>()
+                .HasOne(w => w.WinnerNation)
+                .WithMany(n => n.WorldCups)
+                .HasForeignKey(w => w.WinnerNationId)
+                .HasConstraintName("FK_WorldCupWinner_Nation")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<NationWorldCup>()
+                .HasOne(w => w.RunnerUpNation)
+                .WithMany(n => n.WorldCupRunnerUps)
+                .HasForeignKey(w => w.RunnerUpNationId)
+                .HasConstraintName("FK_WorldCupRunnerUp_Nation")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<NationWorldCup>()
+                .HasOne(w => w.ThirdPlaceNation)
+                .WithMany(n => n.WorldCupThirdPlaces)
+                .HasForeignKey(w => w.ThirdPlaceNationId)
+                .HasConstraintName("FK_WorldCupThirdPlace_Nation")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      Continental Cup Builder        ---------- // 
+
+            builder.Entity<NationContinentalCup>()
+                .HasKey(c => c.ContinentalCupID);
+
+            builder.Entity<NationContinentalCup>()
+                .HasOne(c => c.WinnerNation)
+                .WithMany(n => n.ContinentalCups)
+                .HasForeignKey(c => c.WinnerNationId)
+                .HasConstraintName("FK_ContinentalCupWinner_Nation")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<NationContinentalCup>()
+                .HasOne(c => c.RunnerUpNation)
+                .WithMany(n => n.ContinentalCupRunnerUps)
+                .HasForeignKey(c => c.RunnerUpNationId)
+                .HasConstraintName("FK_ContinentalCupRunnerUp_Nation")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<NationContinentalCup>()
+                .HasOne(c => c.ThirdPlaceNation)
+                .WithMany(n => n.ContinentalCupThirdPlaces)
+                .HasForeignKey(c => c.ThirdPlaceNationId)
+                .HasConstraintName("FK_ContinentalCupThirdPlace_Nation")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      Icon Builder        ---------- // 
+
+            builder.Entity<Icon>()
+                .HasKey(i => i.IconId);
+
+            // ----------      Nation Icon Stats Builder        ---------- // 
+
+            builder.Entity<NationIconStats>()
+                .HasKey(s => s.StatId);
+
+            builder.Entity<NationIconStats>()
+                .HasOne(s => s.Icon)
+                .WithOne(i => i.NationIconStats)
+                .HasConstraintName("FK_NationStats_Icon")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<NationIconStats>()
+                .HasOne(s => s.Nation)
+                .WithMany(n => n.IconsStats)
+                .HasForeignKey(s => s.NationId)
+                .HasConstraintName("FK_NationStats_Nation")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      Nation Icon Stats <--- Middle Table ---> World Cup Squads Builder for Middle Table       ---------- // 
+            builder.Entity<NationIconStatsWorldCupSquads>()
+                .HasKey(n => new { n.StatsId, n.SquadId });
+                
+
+            builder.Entity<NationIconStatsWorldCupSquads>()
+                .HasOne(n => n.NationIconStats)
+                .WithMany(s => s.WorldCupSquads)
+                .HasForeignKey(n => n.StatsId)
+                .HasConstraintName("FK_ManyToMany_NationStats")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<NationIconStatsWorldCupSquads>()
+                .HasOne(n => n.WorldCupSquads)
+                .WithMany(w => w.Players)
+                .HasForeignKey(n => n.SquadId)
+                .HasConstraintName("FK_ManyToMany_WorldCupSquads")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      World Cup Squads Builder        ---------- // 
+
+            builder.Entity<WorldCupSquads>()
+                .HasKey(c => c.SquadId);
+
+            builder.Entity<WorldCupSquads>()
+                .HasOne(s => s.Nation)
+                .WithMany(n => n.WorldCupSquads)
+                .HasForeignKey(s => s.NationId)
+                .HasConstraintName("FK_WorldCupSquad_Nation")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      Nation Icon Stats <--- Middle Table ---> Continental Cup Squads Builder for Middle Table       ---------- // 
+
+            builder.Entity<NationIconStatsContinentalCupSquads>()
+                .HasKey(n => new { n.SquadId, n.StatsId });
+
+            builder.Entity<NationIconStatsContinentalCupSquads>()
+                .HasOne(s => s.NationIconStats)
+                .WithMany(n => n.ContinentalCupSquads)
+                .HasForeignKey(s => s.StatsId)
+                .HasConstraintName("FK_ManyToMany_NationIconStats")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<NationIconStatsContinentalCupSquads>()
+                .HasOne(s => s.ContinentalCupSquads)
+                .WithMany(n => n.Players)
+                .HasForeignKey(s => s.SquadId)
+                .HasConstraintName("FK_ManyToMany_ContinentalCupSquads")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      Continental Cup Squads Builder        ---------- // 
+
+            builder.Entity<ContinentalCupSquads>()
+                .HasKey(c => c.SquadId);
+
+            builder.Entity<ContinentalCupSquads>()
+                .HasOne(s => s.Nation)
+                .WithMany(n => n.ContinentalCupSquads)
+                .HasForeignKey(s => s.NationId)
+                .HasConstraintName("FK_ContinentalCupSquad_Nation")
+                .OnDelete(DeleteBehavior.NoAction);
+
 
             base.OnModelCreating(builder);
 
