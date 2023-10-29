@@ -25,6 +25,10 @@ namespace RetroBack.Persistence
         public DbSet<NationIconStatsWorldCupSquads> NationIconStatsWorldCupSquads { get; set; }
         public DbSet<ContinentalCupSquads> ContinentalCupSquads { get; set; }
         public DbSet<NationIconStatsContinentalCupSquads> NationIconStatsContinentalCupSquads { get; set; }
+        public DbSet<TeamIconStats> TeamIconStats { get; set; }
+        public DbSet<BallonDor> BallonDors { get; set; }
+        public DbSet<BallonDorStats> BallonDorStats { get; set; }
+        public DbSet<BallonDorNominationsStats> BallonDorNominationsStats { get; set; }
 
         public RetroFootballDbContext(DbContextOptions options)
             : base(options)
@@ -286,6 +290,130 @@ namespace RetroBack.Persistence
                 .HasConstraintName("FK_ContinentalCupSquad_Nation")
                 .OnDelete(DeleteBehavior.NoAction);
 
+            // ----------      Team Stats Builder        ---------- // 
+
+            builder.Entity<TeamIconStats>()
+                .HasKey (c => c.StatId);
+
+            builder.Entity<TeamIconStats>()
+                .HasOne(s => s.Icon)
+                .WithMany(i => i.TeamIconStats)
+                .HasForeignKey(s => s.IconId)
+                .HasConstraintName("FK_IconStat_Icon")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<TeamIconStats>() 
+                .HasOne(s => s.Team)
+                .WithMany(t => t.IconStats)
+                .HasForeignKey(s => s.TeamId)
+                .HasConstraintName("FK_IconStats_Team")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      Ballon Dor Stats Builder        ---------- // 
+
+            builder.Entity<BallonDorStats>()
+                .HasKey(b => b.StatId);
+
+            builder.Entity<BallonDorStats>()
+                .HasOne(b => b.Icon)
+                .WithOne(i => i.BallonDorStats)
+                .HasConstraintName("FK_BallonDorStat_Icon")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      Ballon Dor Builder        ---------- // 
+
+            builder.Entity<BallonDor>()
+                .HasKey(b => b.BallonDorId);
+
+            builder.Entity<BallonDor>()
+                .HasOne(b => b.WinnerIcon)
+                .WithMany(z => z.BallonDorWins)
+                .HasForeignKey(b => b.WinnerIconId)
+                .HasConstraintName("FK_BallonDorWinner_BallonStats")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<BallonDor>()
+                .HasOne(b => b.RunnerUpIcon)
+                .WithMany(z => z.BallonDorSeconPlaces)
+                .HasForeignKey(b => b.RunnerUpIconId)
+                .HasConstraintName("FK_BallonDorSecondPlace_BallonStats")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<BallonDor>()
+                .HasOne(b => b.ThirdPlaceIcon)
+                .WithMany(z => z.BallonDorThirdPlaces)
+                .HasForeignKey(b => b.ThirdPlaceIconId)
+                .HasConstraintName("FK_BallonDorThirdPlace_BallonStats")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<BallonDor>()
+                .HasOne(b => b.FourthPlaceIcon)
+                .WithMany(z => z.BallonDorFourthPlaces)
+                .HasForeignKey(b => b.FourthPlaceIconId)
+                .HasConstraintName("FK_BallonDorFourthPlace_BallonStats")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<BallonDor>()
+                .HasOne(b => b.FifthPlaceIcon)
+                .WithMany(z => z.BallonDorFifthPlaces)
+                .HasForeignKey(b => b.FifthPlaceIconId)
+                .HasConstraintName("FK_BallonDorFifthPlace_BallonStats")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<BallonDor>()
+                .HasOne(b => b.SixthPlaceIcon)
+                .WithMany(z => z.BallonDorSixthPlaces)
+                .HasForeignKey(b => b.SixthPlaceIconId)
+                .HasConstraintName("FK_BallonDorSixthPlace_BallonStats")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<BallonDor>()
+                .HasOne(b => b.SeventhPlaceIcon)
+                .WithMany(z => z.BallonDorSeventhPlaces)
+                .HasForeignKey(b => b.SeventhPlaceIconId)
+                .HasConstraintName("FK_BallonDorSeventhPlace_BallonStats")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<BallonDor>()
+                .HasOne(b => b.EigthPlaceIcon)
+                .WithMany(z => z.BallonDorEigthPlaces)
+                .HasForeignKey(b => b.EigthPlaceIconId)
+                .HasConstraintName("FK_BallonDorEigthPlace_BallonStats")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<BallonDor>()
+                .HasOne(b => b.NinethPlaceIcon)
+                .WithMany(z => z.BallonDorNinethPlaces)
+                .HasForeignKey(b => b.NinethPlaceIconId)
+                .HasConstraintName("FK_BallonDorNinethPlace_BallonStats")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<BallonDor>()
+                .HasOne(b => b.TenthPlaceIcon)
+                .WithMany(z => z.BallonDorTenthPlaces)
+                .HasForeignKey(b => b.TenthPlaceIconId)
+                .HasConstraintName("FK_BallonDorTenthPlace_BallonStats")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // ----------      Ballon Dor Nominations -> Many to Many <- BallonDor Stats Builder        ---------- // 
+
+            builder.Entity<BallonDorNominationsStats>()
+                .HasKey(b => new { b.BallonId, b.BallonStatId });
+
+            builder.Entity<BallonDorNominationsStats>()
+                .HasOne(b => b.BallonDor)
+                .WithMany(d => d.Nominations)
+                .HasForeignKey(b => b.BallonId)
+                .HasConstraintName("FK_Nomination_BallonDor")
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<BallonDorNominationsStats>()
+                .HasOne(b => b.BallonDorStats)
+                .WithMany(d => d.BallonDorNominations)
+                .HasForeignKey(b => b.BallonStatId)
+                .HasConstraintName("FK_Nominations_BallonStats")
+                .OnDelete(DeleteBehavior.NoAction);
+              
 
             base.OnModelCreating(builder);
 

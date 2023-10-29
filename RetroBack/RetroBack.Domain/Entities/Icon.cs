@@ -20,5 +20,7 @@ namespace RetroBack.Domain.Entities
         public Guid NationIconStatId { get; set; }
         [IgnoreDataMember]
         public NationIconStats NationIconStats { get; set; }
+        public BallonDorStats BallonDorStats { get; set; }
+        public ICollection<TeamIconStats> TeamIconStats { get; set; }
     }
 }

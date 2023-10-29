@@ -225,6 +225,102 @@ namespace RetroBack.Persistence.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("RetroBack.Domain.Entities.BallonDor", b =>
+                {
+                    b.Property<Guid>("BallonDorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EigthPlaceIconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("FifthPlaceIconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("FourthPlaceIconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("NinethPlaceIconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RunnerUpIconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SeventhPlaceIconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SixthPlaceIconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("TenthPlaceIconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ThirdPlaceIconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("WinnerIconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("BallonDorId");
+
+                    b.HasIndex("EigthPlaceIconId");
+
+                    b.HasIndex("FifthPlaceIconId");
+
+                    b.HasIndex("FourthPlaceIconId");
+
+                    b.HasIndex("NinethPlaceIconId");
+
+                    b.HasIndex("RunnerUpIconId");
+
+                    b.HasIndex("SeventhPlaceIconId");
+
+                    b.HasIndex("SixthPlaceIconId");
+
+                    b.HasIndex("TenthPlaceIconId");
+
+                    b.HasIndex("ThirdPlaceIconId");
+
+                    b.HasIndex("WinnerIconId");
+
+                    b.ToTable("BallonDors");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.BallonDorNominationsStats", b =>
+                {
+                    b.Property<Guid>("BallonId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BallonStatId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("BallonId", "BallonStatId");
+
+                    b.HasIndex("BallonStatId");
+
+                    b.ToTable("BallonDorNominationsStats");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.BallonDorStats", b =>
+                {
+                    b.Property<Guid>("StatId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("StatId");
+
+                    b.HasIndex("IconId")
+                        .IsUnique();
+
+                    b.ToTable("BallonDorStats");
+                });
+
             modelBuilder.Entity("RetroBack.Domain.Entities.ContinentalCupSquads", b =>
                 {
                     b.Property<Guid>("SquadId")
@@ -555,6 +651,39 @@ namespace RetroBack.Persistence.Migrations
                     b.ToTable("DomesticSuperCupInfo");
                 });
 
+            modelBuilder.Entity("RetroBack.Domain.Entities.TeamIconStats", b =>
+                {
+                    b.Property<Guid>("StatId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("GamesPlayed")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GoalsScored")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("IconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("PlayedFromYear")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PlayedUntilYear")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("TeamId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("StatId");
+
+                    b.HasIndex("IconId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("TeamIconStats");
+                });
+
             modelBuilder.Entity("RetroBack.Domain.Entities.TeamUEFACup", b =>
                 {
                     b.Property<Guid>("UEFACupID")
@@ -732,6 +861,132 @@ namespace RetroBack.Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.BallonDor", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.BallonDorStats", "EigthPlaceIcon")
+                        .WithMany("BallonDorEigthPlaces")
+                        .HasForeignKey("EigthPlaceIconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_BallonDorEigthPlace_BallonStats");
+
+                    b.HasOne("RetroBack.Domain.Entities.BallonDorStats", "FifthPlaceIcon")
+                        .WithMany("BallonDorFifthPlaces")
+                        .HasForeignKey("FifthPlaceIconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_BallonDorFifthPlace_BallonStats");
+
+                    b.HasOne("RetroBack.Domain.Entities.BallonDorStats", "FourthPlaceIcon")
+                        .WithMany("BallonDorFourthPlaces")
+                        .HasForeignKey("FourthPlaceIconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_BallonDorFourthPlace_BallonStats");
+
+                    b.HasOne("RetroBack.Domain.Entities.BallonDorStats", "NinethPlaceIcon")
+                        .WithMany("BallonDorNinethPlaces")
+                        .HasForeignKey("NinethPlaceIconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_BallonDorNinethPlace_BallonStats");
+
+                    b.HasOne("RetroBack.Domain.Entities.BallonDorStats", "RunnerUpIcon")
+                        .WithMany("BallonDorSeconPlaces")
+                        .HasForeignKey("RunnerUpIconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_BallonDorSecondPlace_BallonStats");
+
+                    b.HasOne("RetroBack.Domain.Entities.BallonDorStats", "SeventhPlaceIcon")
+                        .WithMany("BallonDorSeventhPlaces")
+                        .HasForeignKey("SeventhPlaceIconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_BallonDorSeventhPlace_BallonStats");
+
+                    b.HasOne("RetroBack.Domain.Entities.BallonDorStats", "SixthPlaceIcon")
+                        .WithMany("BallonDorSixthPlaces")
+                        .HasForeignKey("SixthPlaceIconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_BallonDorSixthPlace_BallonStats");
+
+                    b.HasOne("RetroBack.Domain.Entities.BallonDorStats", "TenthPlaceIcon")
+                        .WithMany("BallonDorTenthPlaces")
+                        .HasForeignKey("TenthPlaceIconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_BallonDorTenthPlace_BallonStats");
+
+                    b.HasOne("RetroBack.Domain.Entities.BallonDorStats", "ThirdPlaceIcon")
+                        .WithMany("BallonDorThirdPlaces")
+                        .HasForeignKey("ThirdPlaceIconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_BallonDorThirdPlace_BallonStats");
+
+                    b.HasOne("RetroBack.Domain.Entities.BallonDorStats", "WinnerIcon")
+                        .WithMany("BallonDorWins")
+                        .HasForeignKey("WinnerIconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_BallonDorWinner_BallonStats");
+
+                    b.Navigation("EigthPlaceIcon");
+
+                    b.Navigation("FifthPlaceIcon");
+
+                    b.Navigation("FourthPlaceIcon");
+
+                    b.Navigation("NinethPlaceIcon");
+
+                    b.Navigation("RunnerUpIcon");
+
+                    b.Navigation("SeventhPlaceIcon");
+
+                    b.Navigation("SixthPlaceIcon");
+
+                    b.Navigation("TenthPlaceIcon");
+
+                    b.Navigation("ThirdPlaceIcon");
+
+                    b.Navigation("WinnerIcon");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.BallonDorNominationsStats", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.BallonDor", "BallonDor")
+                        .WithMany("Nominations")
+                        .HasForeignKey("BallonId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_Nomination_BallonDor");
+
+                    b.HasOne("RetroBack.Domain.Entities.BallonDorStats", "BallonDorStats")
+                        .WithMany("BallonDorNominations")
+                        .HasForeignKey("BallonStatId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_Nominations_BallonStats");
+
+                    b.Navigation("BallonDor");
+
+                    b.Navigation("BallonDorStats");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.BallonDorStats", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.Icon", "Icon")
+                        .WithOne("BallonDorStats")
+                        .HasForeignKey("RetroBack.Domain.Entities.BallonDorStats", "IconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_BallonDorStat_Icon");
+
+                    b.Navigation("Icon");
                 });
 
             modelBuilder.Entity("RetroBack.Domain.Entities.ContinentalCupSquads", b =>
@@ -914,6 +1169,27 @@ namespace RetroBack.Persistence.Migrations
                     b.Navigation("Winner");
                 });
 
+            modelBuilder.Entity("RetroBack.Domain.Entities.TeamIconStats", b =>
+                {
+                    b.HasOne("RetroBack.Domain.Entities.Icon", "Icon")
+                        .WithMany("TeamIconStats")
+                        .HasForeignKey("IconId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_IconStat_Icon");
+
+                    b.HasOne("RetroBack.Domain.Entities.Team", "Team")
+                        .WithMany("IconStats")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_IconStats_Team");
+
+                    b.Navigation("Icon");
+
+                    b.Navigation("Team");
+                });
+
             modelBuilder.Entity("RetroBack.Domain.Entities.TeamUEFACup", b =>
                 {
                     b.HasOne("RetroBack.Domain.Entities.Team", "RunnerUpTeam")
@@ -1004,6 +1280,36 @@ namespace RetroBack.Persistence.Migrations
                     b.Navigation("UserRoles");
                 });
 
+            modelBuilder.Entity("RetroBack.Domain.Entities.BallonDor", b =>
+                {
+                    b.Navigation("Nominations");
+                });
+
+            modelBuilder.Entity("RetroBack.Domain.Entities.BallonDorStats", b =>
+                {
+                    b.Navigation("BallonDorEigthPlaces");
+
+                    b.Navigation("BallonDorFifthPlaces");
+
+                    b.Navigation("BallonDorFourthPlaces");
+
+                    b.Navigation("BallonDorNinethPlaces");
+
+                    b.Navigation("BallonDorNominations");
+
+                    b.Navigation("BallonDorSeconPlaces");
+
+                    b.Navigation("BallonDorSeventhPlaces");
+
+                    b.Navigation("BallonDorSixthPlaces");
+
+                    b.Navigation("BallonDorTenthPlaces");
+
+                    b.Navigation("BallonDorThirdPlaces");
+
+                    b.Navigation("BallonDorWins");
+                });
+
             modelBuilder.Entity("RetroBack.Domain.Entities.ContinentalCupSquads", b =>
                 {
                     b.Navigation("Players");
@@ -1011,8 +1317,13 @@ namespace RetroBack.Persistence.Migrations
 
             modelBuilder.Entity("RetroBack.Domain.Entities.Icon", b =>
                 {
+                    b.Navigation("BallonDorStats")
+                        .IsRequired();
+
                     b.Navigation("NationIconStats")
                         .IsRequired();
+
+                    b.Navigation("TeamIconStats");
                 });
 
             modelBuilder.Entity("RetroBack.Domain.Entities.Nation", b =>
@@ -1061,6 +1372,8 @@ namespace RetroBack.Persistence.Migrations
                     b.Navigation("DomesticLeagues");
 
                     b.Navigation("DomesticSuperCups");
+
+                    b.Navigation("IconStats");
 
                     b.Navigation("UefaCups");
 

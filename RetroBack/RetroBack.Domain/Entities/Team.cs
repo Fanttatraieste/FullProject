@@ -8,6 +8,8 @@ namespace RetroBack.Domain.Entities
         public string TeamName { get; set; }
         public string  TeamCountry { get; set; }
 
+        public ICollection<TeamIconStats> IconStats { get; set; }
+
         public ICollection<ChampionsCup> ChampionsCups { get; set; }
         public ICollection<ChampionsCup> ChampionsCupRunnerUps { get; set; }
         public ICollection<TeamDomesticCup> DomesticCups { get; set; }
