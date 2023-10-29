@@ -16,8 +16,8 @@ namespace RetroBack.Domain.Entities
         public int RetiredInYear { get; set; }
         public int YearOfBirth { get; set; }
 
-        [ForeignKey("NationIconStats")]
-        public Guid NationIconStatId { get; set; }
+        //[ForeignKey("NationIconStats")]
+        //public Guid NationIconStatId { get; set; }
         [IgnoreDataMember]
         public NationIconStats NationIconStats { get; set; }
         public BallonDorStats BallonDorStats { get; set; }

@@ -8,7 +8,10 @@ using RetroBack.Domain.Repositories;
 
 namespace RetroBack.Application.Commands.TeamCommands
 {
-    public class TeamCommandHandler : IRequestHandler<CreateTeamCommand, CommandResponse<TeamDTO>>
+    public class TeamCommandHandler : 
+        IRequestHandler<CreateTeamCommand, CommandResponse<TeamDTO>>,
+        IRequestHandler<UpdateTeamCommand, CommandResponse>,
+        IRequestHandler<DeleteTeamCommand, CommandResponse>
     {
         private readonly IRepository<Team> _teamRepository;
 

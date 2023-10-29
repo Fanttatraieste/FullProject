@@ -11,7 +11,9 @@ using RetroBack.Domain.Repositories;
 
 namespace RetroBack.Application.Queries.TeamQueries
 {
-    public class TeamQueryHandler : IRequestHandler<GetTeamQuery, CommandResponse<TeamDTO>>, IRequestHandler<GetTeamsQuery, CollectionResponse<TeamListItemDTO>>
+    public class TeamQueryHandler : 
+        IRequestHandler<GetTeamQuery, CommandResponse<TeamDTO>>, 
+        IRequestHandler<GetTeamsQuery, CollectionResponse<TeamListItemDTO>>
     {
         private readonly IRepository<Team> _teamRepository;
 

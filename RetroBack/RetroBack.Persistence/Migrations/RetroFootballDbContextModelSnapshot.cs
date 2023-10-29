@@ -358,9 +358,6 @@ namespace RetroBack.Persistence.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("NationIconStatId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Nickname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
