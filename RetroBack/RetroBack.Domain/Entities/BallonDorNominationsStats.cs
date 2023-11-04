@@ -12,9 +12,9 @@ namespace RetroBack.Domain.Entities
         [ForeignKey("BallonDorStats")]
         public Guid BallonStatId { get; set; }
 
-        [IgnoreDataMember]
-        public BallonDor BallonDor { get; set; }
-        [IgnoreDataMember]
-        public BallonDorStats BallonDorStats { get; set; }
+        
+        public virtual BallonDor BallonDor { get; set; }
+        
+        public virtual BallonDorStats BallonDorStats { get; set; }
     }
 }

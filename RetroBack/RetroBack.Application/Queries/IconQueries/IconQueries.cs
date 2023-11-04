@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RetroBack.Application.Common;
 using RetroBack.Application.Models;
 using RetroBack.Application.QueryProjections;

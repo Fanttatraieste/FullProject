@@ -18,5 +18,6 @@ namespace RetroBack.Common.Constants
         public const string WorldCup_Does_Not_Exist = "WorldCup does not exist";
         public const string ContinentalCup_Does_Not_Exist = "ContinentalCup does not exist";
         public const string Icon_Does_Not_Exist = "Icon does not exist";
+        public const string BallonDor_Does_Not_Exist = "BallonDor does not exist";
     }
 }

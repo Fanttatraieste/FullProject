@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.Serialization;
 
 namespace RetroBack.Domain.Entities
 {
@@ -38,36 +37,16 @@ namespace RetroBack.Domain.Entities
         [ForeignKey("TenthPlaceIcon")]
         public Guid TenthPlaceIconId { get; set; }
 
-        [IgnoreDataMember]
-        public BallonDorStats WinnerIcon { get; set; }
-
-        [IgnoreDataMember]
-        public BallonDorStats RunnerUpIcon { get; set; }
-
-        [IgnoreDataMember]
-        public BallonDorStats ThirdPlaceIcon { get; set; }
-
-        [IgnoreDataMember]
-        public BallonDorStats FourthPlaceIcon { get; set; }
-
-        [IgnoreDataMember]
-        public BallonDorStats FifthPlaceIcon { get; set; }
-
-        [IgnoreDataMember]
-        public BallonDorStats SixthPlaceIcon { get; set; }
-
-        [IgnoreDataMember]
-        public BallonDorStats SeventhPlaceIcon { get; set; }
-
-        [IgnoreDataMember]
-        public BallonDorStats EigthPlaceIcon { get; set; }
-
-        [IgnoreDataMember]
-        public BallonDorStats NinethPlaceIcon { get; set; }
-
-        [IgnoreDataMember]
-        public BallonDorStats TenthPlaceIcon { get; set; }
-
-        public ICollection<BallonDorNominationsStats> Nominations { get; set; }
+        public virtual BallonDorStats WinnerIcon { get; set; }
+        public virtual BallonDorStats RunnerUpIcon { get; set; }
+        public virtual BallonDorStats ThirdPlaceIcon { get; set; }
+        public virtual BallonDorStats FourthPlaceIcon { get; set; }
+        public virtual BallonDorStats FifthPlaceIcon { get; set; }
+        public virtual BallonDorStats SixthPlaceIcon { get; set; }
+        public virtual BallonDorStats SeventhPlaceIcon { get; set; }
+        public virtual BallonDorStats EigthPlaceIcon { get; set; }
+        public virtual BallonDorStats NinethPlaceIcon { get; set; }
+        public virtual BallonDorStats TenthPlaceIcon { get; set; }
+        public virtual ICollection<BallonDorNominationsStats> Nominations { get; set; }
     }
 }
