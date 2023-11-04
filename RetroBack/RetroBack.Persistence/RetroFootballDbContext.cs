@@ -210,6 +210,12 @@ namespace RetroBack.Persistence
             builder.Entity<Icon>()
                 .HasKey(i => i.IconId);
 
+            builder.Entity<Icon>()
+                .Property(i => i.FirstName).IsRequired().HasMaxLength(450);
+
+            builder.Entity<Icon>()
+                .Property(i => i.LastName).IsRequired().HasMaxLength(450);
+
             // ----------      Nation Icon Stats Builder        ---------- // 
 
             builder.Entity<NationIconStats>()

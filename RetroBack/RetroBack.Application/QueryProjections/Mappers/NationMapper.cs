@@ -1,9 +1,8 @@
-﻿using RetroBack.Application.QueryProjections;
-using RetroBack.Domain.Entities;
+﻿using RetroBack.Domain.Entities;
 
-namespace RetroBack.Application.Queries.NationQueries
+namespace RetroBack.Application.QueryProjections.Mappers
 {
-    public static class NationFilter
+    public static class NationMapper
     {
         public static IQueryable<NationListItemDto> ProjectToDto(this IQueryable<Nation> nationQuery)
         {

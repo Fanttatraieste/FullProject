@@ -1,9 +1,8 @@
-﻿using RetroBack.Application.Queries.TeamQueries;
-using RetroBack.Domain.Entities;
+﻿using RetroBack.Domain.Entities;
 
-namespace RetroBack.Application.QueryProjections.Mappers
+namespace RetroBack.Application.Queries.TeamQueries
 {
-    public static  class TeamMappers
+    public static class TeamFilters
     {
         public static IQueryable<Team> ApplyFilter(this IQueryable<Team> teamsQuery, GetTeamsQuery request)
         {

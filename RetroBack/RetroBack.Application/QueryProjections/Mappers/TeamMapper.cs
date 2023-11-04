@@ -1,9 +1,9 @@
 ﻿using RetroBack.Application.QueryProjections;
 using RetroBack.Domain.Entities;
 
-namespace RetroBack.Application.Queries.TeamQueries
+namespace RetroBack.Application.QueryProjections.Mappers
 {
-    public static class TeamFilters
+    public static class TeamMapper
     {
         public static IQueryable<TeamListItemDTO> ProjectToDTO(this IQueryable<Team> teamQuery)
         {

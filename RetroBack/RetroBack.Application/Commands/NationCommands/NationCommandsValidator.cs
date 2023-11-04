@@ -1,5 +1,4 @@
-﻿
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace RetroBack.Application.Commands.NationCommands
 {

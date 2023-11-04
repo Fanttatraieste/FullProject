@@ -5,11 +5,7 @@ using RetroBack.Application.Models;
 using RetroBack.Common.Constants;
 using RetroBack.Domain.Entities;
 using RetroBack.Domain.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace RetroBack.Application.Commands.NationCommands
 {
@@ -37,14 +33,14 @@ namespace RetroBack.Application.Commands.NationCommands
 
             _nationRepository.Add(newNation);
 
-            await _nationRepository.SaveChangesAsync();
+            await _nationRepository.SaveChangesAsync(cancellationToken);
 
             return await Task.FromResult(CommandResponse<NationDto>.Ok(request.NationDto));
         }
 
         public async Task<CommandResponse> Handle(UpdateNationCommand request, CancellationToken cancellationToken)
         {
-            var existingNation = await _nationRepository.Query(n => n.NationID == request.NationDto.NationId).FirstOrDefaultAsync();
+            var existingNation = await _nationRepository.Query(n => n.NationID == request.NationDto.NationId).FirstOrDefaultAsync(cancellationToken);
 
             if (existingNation == null)
             {
@@ -54,7 +50,7 @@ namespace RetroBack.Application.Commands.NationCommands
             existingNation.NationName = request.NationDto.NationName;
             existingNation.Confederation = request.NationDto.Confederation;
 
-            await _nationRepository.SaveChangesAsync();
+            await _nationRepository.SaveChangesAsync(cancellationToken);
             return CommandResponse.Ok();
         }
 
@@ -69,7 +65,7 @@ namespace RetroBack.Application.Commands.NationCommands
 
             _nationRepository.Remove(existingNation);
 
-            await _nationRepository.SaveChangesAsync();
+            await _nationRepository.SaveChangesAsync(cancellationToken);
 
             return CommandResponse.Ok();    
         }

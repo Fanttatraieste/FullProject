@@ -18,7 +18,7 @@ namespace RetroBack.Web.Controllers
     {
         public NationsController() { }
 
-        [HttpPost]
+        [HttpPost("")]
         [Authorize(AuthenticationSchemes = "Bearer")]
         [ProducesResponseType(typeof(CommandResponse<NationDto>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(CommandResponse), (int)HttpStatusCode.BadRequest)]
@@ -53,7 +53,7 @@ namespace RetroBack.Web.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(CommandResponse<TeamDTO>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(CommandResponse<NationDto>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> GetNation([FromRoute] Guid id)
         {
@@ -61,7 +61,7 @@ namespace RetroBack.Web.Controllers
             return commandResponse.IsValid ? Ok(commandResponse) : FormatError(commandResponse);
         }
 
-        [HttpGet()]
+        [HttpGet("/GetAllNations")]
         [ProducesResponseType(typeof(CollectionResponse<NationListItemDto>), (int)HttpStatusCode.OK)]
         public async Task<CollectionResponse<NationListItemDto>> GetNations([FromQuery] GetNationsQuery query)
         {
