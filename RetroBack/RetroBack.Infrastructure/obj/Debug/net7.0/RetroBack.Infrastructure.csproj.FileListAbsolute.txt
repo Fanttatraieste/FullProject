@@ -55,3 +55,5 @@ C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrast
 C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\refint\RetroBack.Infrastructure.dll
 C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\RetroBack.Infrastructure.pdb
 C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\obj\Debug\net7.0\ref\RetroBack.Infrastructure.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\bin\Debug\net7.0\RetroBack.Persistence.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Infrastructure\bin\Debug\net7.0\RetroBack.Persistence.pdb

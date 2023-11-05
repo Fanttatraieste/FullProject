@@ -2,30 +2,38 @@
 using Microsoft.EntityFrameworkCore;
 using RetroBack.Application.Common;
 using RetroBack.Application.Models;
+using RetroBack.Application.QueryProjections;
+using RetroBack.Application.QueryProjections.Mappers;
 using RetroBack.Common.Constants;
 using RetroBack.Domain.Entities;
 using RetroBack.Domain.Repositories;
- 
+using RetroBack.Persistence;
+
 namespace RetroBack.Application.Queries.BallonDorQueries
 {
     public class BallonDorQueryHandler :
-        IRequestHandler<GetBallonDorQuery, CommandResponse<BallonDorDto>>
+        IRequestHandler<GetBallonDorQuery, CommandResponse<BallonDorDto>>,
+        IRequestHandler<GetBallonDorsQuery, CommandResponse<List<BallonDorListItemDto>>>
     {
         private readonly IRepository<BallonDor> _ballonDorRepository;
-        private readonly IRepository<BallonDorNominationsStats> _ballonDorNominationsStatsRepository;
-        public BallonDorQueryHandler(IRepository<BallonDor> ballonDorRepository, IRepository<BallonDorNominationsStats> ballonDorNominationsStatsRepository)
+        private readonly RetroFootballDbContext _retroFootballDbContext;
+        public BallonDorQueryHandler(IRepository<BallonDor> ballonDorRepository, RetroFootballDbContext retroFootballDbContext)
         {
             _ballonDorRepository = ballonDorRepository;
-            _ballonDorNominationsStatsRepository = ballonDorNominationsStatsRepository;
+            _retroFootballDbContext = retroFootballDbContext;
         }
 
         public async Task<CommandResponse<BallonDorDto>> Handle(GetBallonDorQuery request, CancellationToken cancellationToken)
         {
-            var nominations = await _ballonDorNominationsStatsRepository.Query(x => x.BallonDor.BallonDorId == request.BallonDorId).Select(x => new IconPairNameDto
-            {
-                IconId = x.BallonDorStats.Icon.IconId,
-                NickName = x.BallonDorStats.Icon.Nickname
-            }).ToListAsync(cancellationToken);
+            var nominations = (from stat in _retroFootballDbContext.BallonDorStats
+                               join nom in _retroFootballDbContext.BallonDorNominationsStats on stat.StatId equals nom.BallonStatId
+                               join ballon in _retroFootballDbContext.BallonDors on nom.BallonId equals ballon.BallonDorId
+                               select new IconPairNameDto
+                               {
+                                   IconId = stat.IconId,
+                                   NickName = stat.Icon.Nickname
+                               }
+                              ).ToList();
 
             var existingBallonDor = await _ballonDorRepository.Query(x => x.BallonDorId == request.BallonDorId).Select(x => new BallonDorDto
             {
@@ -43,7 +51,7 @@ namespace RetroBack.Application.Queries.BallonDorQueries
 
                 WinnerIconName = x.WinnerIcon.Icon.Nickname,
                 RunnerUpIconName = x.RunnerUpIcon.Icon.Nickname,
-                ThirdPlaceIconName = x.RunnerUpIcon.Icon.Nickname,
+                ThirdPlaceIconName = x.ThirdPlaceIcon.Icon.Nickname,
                 FourthPlaceIconName = x.FourthPlaceIcon.Icon.Nickname,
                 FifthPlaceIconName = x.FifthPlaceIcon.Icon.Nickname,
                 SixthPlaceIconName = x.SixthPlaceIcon.Icon.Nickname,
@@ -61,6 +69,19 @@ namespace RetroBack.Application.Queries.BallonDorQueries
             }
 
             return CommandResponse<BallonDorDto>.Ok(existingBallonDor);
+        }
+
+        public async Task<CommandResponse<List<BallonDorListItemDto>>> Handle(GetBallonDorsQuery request, CancellationToken cancellationToken)
+        {
+            // filtering
+            var ballonDorQuery = _ballonDorRepository.Query().ApplyFilter(request);
+
+            // projection 
+            var ballonDorDtoQuery = ballonDorQuery.ProjectToDto(_retroFootballDbContext);
+
+            var existingBallonDorsDtos = await ballonDorDtoQuery.ToListAsync(cancellationToken);
+
+            return new CommandResponse<List<BallonDorListItemDto>>(existingBallonDorsDtos);
         }
     }
 }

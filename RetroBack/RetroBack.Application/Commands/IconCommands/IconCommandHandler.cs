@@ -23,6 +23,11 @@ namespace RetroBack.Application.Commands.IconCommands
         {
             request.IconDto.IconId = Guid.NewGuid();
 
+            if (await _iconRepository.Query(i => i.Nickname == request.IconDto.Nickname).FirstOrDefaultAsync(cancellationToken) != null)
+            {
+                return CommandResponse<IconDto>.Failed(ErrorMessages.Icon_Already_Exists);
+            }
+
             var newIcon = new Icon()
             {
                 IconId = request.IconDto.IconId,

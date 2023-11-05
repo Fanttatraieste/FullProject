@@ -1,5 +1,4 @@
-﻿
-using RetroBack.Domain.Entities;
+﻿using RetroBack.Domain.Entities;
 
 namespace RetroBack.Application.Queries.IconQueries
 {

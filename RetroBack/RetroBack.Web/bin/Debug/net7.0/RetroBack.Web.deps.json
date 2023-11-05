@@ -3044,6 +3044,7 @@
           "Newtonsoft.Json": "13.0.3",
           "RetroBack.Common": "1.0.0",
           "RetroBack.Domain": "1.0.0",
+          "RetroBack.Persistence": "1.0.0",
           "Scrutor": "4.2.2",
           "System.IdentityModel.Tokens.Jwt": "7.0.3"
         },

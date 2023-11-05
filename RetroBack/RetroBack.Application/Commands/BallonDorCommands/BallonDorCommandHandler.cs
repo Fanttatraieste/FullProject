@@ -36,6 +36,7 @@ namespace RetroBack.Application.Commands.BallonDorCommands
                 EigthPlaceIconId = request.BallonDorDto.EigthPlaceIconId,
                 NinethPlaceIconId = request.BallonDorDto.NinethPlaceIconId,
                 TenthPlaceIconId = request.BallonDorDto.TenthPlaceIconId,
+                Year = request.BallonDorDto.Year,
             };
 
             _ballonDorRepository.Add(newBallonDor);
@@ -64,6 +65,7 @@ namespace RetroBack.Application.Commands.BallonDorCommands
             existingBallonDor.EigthPlaceIconId = request.BallonDorDto.EigthPlaceIconId;
             existingBallonDor.NinethPlaceIconId = request.BallonDorDto.NinethPlaceIconId;
             existingBallonDor.TenthPlaceIconId = request.BallonDorDto.TenthPlaceIconId;
+            existingBallonDor.Year = request.BallonDorDto.Year;
 
             await _ballonDorRepository.SaveChangesAsync(cancellationToken);
             return CommandResponse.Ok();

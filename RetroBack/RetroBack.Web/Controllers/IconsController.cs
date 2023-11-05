@@ -64,8 +64,8 @@ namespace RetroBack.Web.Controllers
         [ProducesResponseType(typeof(CollectionResponse<IconListItemDto>), (int)HttpStatusCode.OK)]
         public async Task<CollectionResponse<IconListItemDto>> GetAllIcons([FromQuery] GetIconsQuery query)
         {
-            CollectionResponse<IconListItemDto> teamList = await Mediator.Send(query);
-            return teamList;
+            CollectionResponse<IconListItemDto> iconList = await Mediator.Send(query);
+            return iconList;
         }
 
         private IActionResult FormatError(CommandResponse commandResponse)

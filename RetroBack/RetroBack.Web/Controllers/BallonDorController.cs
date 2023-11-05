@@ -4,6 +4,7 @@ using RetroBack.Application.Commands.BallonDorCommands;
 using RetroBack.Application.Common;
 using RetroBack.Application.Models;
 using RetroBack.Application.Queries.BallonDorQueries;
+using RetroBack.Application.QueryProjections;
 using RetroBack.Common.Constants;
 using RetroBack.Web.Controllers.Base;
 using System.Net;
@@ -59,6 +60,15 @@ namespace RetroBack.Web.Controllers
         {
             CommandResponse<BallonDorDto> commandResponse = await Mediator.Send(new GetBallonDorQuery { BallonDorId = id });
             return commandResponse.IsValid ? Ok(commandResponse) : FormatError(commandResponse);
+        }
+
+        [HttpGet("/getAllBallonDors")]
+        [ProducesResponseType(typeof(CommandResponse<List<BallonDorListItemDto>>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        public async Task<CommandResponse<List<BallonDorListItemDto>>> GetAllBallonDors([FromQuery] GetBallonDorsQuery query)
+        {
+            CommandResponse<List<BallonDorListItemDto>> ballonDorList = await Mediator.Send(query);
+            return ballonDorList;
         }
 
         private IActionResult FormatError(CommandResponse commandResponse)

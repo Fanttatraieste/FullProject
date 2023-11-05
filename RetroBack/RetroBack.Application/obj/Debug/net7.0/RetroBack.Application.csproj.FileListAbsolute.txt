@@ -49,3 +49,5 @@ C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Applica
 C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Application\obj\Debug\net7.0\refint\RetroBack.Application.dll
 C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Application\obj\Debug\net7.0\RetroBack.Application.pdb
 C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Application\obj\Debug\net7.0\ref\RetroBack.Application.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Application\bin\Debug\net7.0\RetroBack.Persistence.dll
+C:\Users\Vlad\Desktop\proiecte vlad\.NET\FullProject\RetroBack\RetroBack.Application\bin\Debug\net7.0\RetroBack.Persistence.pdb

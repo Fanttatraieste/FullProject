@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RetroBack.Common\RetroBack.Common.csproj" />
     <ProjectReference Include="..\RetroBack.Domain\RetroBack.Domain.csproj" />
+    <ProjectReference Include="..\RetroBack.Persistence\RetroBack.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
