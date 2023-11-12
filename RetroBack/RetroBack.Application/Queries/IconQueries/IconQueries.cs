@@ -28,13 +28,13 @@ namespace RetroBack.Application.Queries.IconQueries
 
         // filtering
         [FromQuery]
+        public string? Country { get; set; }
+        [FromQuery]
         public string? FirstName { get; set; }
         [FromQuery]
         public string? LastName { get; set; }
         [FromQuery]
         public string? Nickname { get; set; }
-        [FromQuery]
-        public string? Country { get; set; }
         [FromQuery]
         public int? RetiredInYear { get; set; }
         [FromQuery]
