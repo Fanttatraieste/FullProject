@@ -5,7 +5,6 @@ using RetroBack.Application.Models;
 using RetroBack.Common.Constants;
 using RetroBack.Domain.Entities;
 using RetroBack.Domain.Repositories;
-using RetroBack.Persistence;
 
 namespace RetroBack.Application.Commands.TeamDomesticLeagueCommands
 {
@@ -70,7 +69,6 @@ namespace RetroBack.Application.Commands.TeamDomesticLeagueCommands
             _leagueRepository.Remove(existingLeague);
 
             await _leagueRepository.SaveChangesAsync(cancellationToken);
-
             return CommandResponse.Ok();
         }
     }

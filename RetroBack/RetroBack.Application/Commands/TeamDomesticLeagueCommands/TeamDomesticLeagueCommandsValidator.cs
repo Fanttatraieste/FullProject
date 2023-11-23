@@ -1,6 +1,4 @@
-﻿
-using FluentValidation;
-using RetroBack.Application.Commands.IconCommands;
+﻿using FluentValidation;
 
 namespace RetroBack.Application.Commands.TeamDomesticLeagueCommands
 {
